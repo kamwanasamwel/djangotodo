@@ -1,0 +1,21 @@
+<div class="container">
+  <p>
+    <b>
+      Deleting <span style="color: red">{{ item }}</span> is permanent.... do
+      you want to proceed?
+    </b>
+  </p>
+  <br />
+  <a href="{% url 'task_list' %}" class="btn btn-sm btn-success myButton">NO</a>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    <input
+      type="submit"
+      class="btn btn-sm btn-danger"
+      value="Yes Delete"
+      ,
+      name="Yes"
+    />
+  </form>
+</div>

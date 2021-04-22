@@ -32,3 +32,15 @@ def updateTask(request, pk):
     }
 
     return render(request, 'update_task.html', context)
+
+
+def deleteTask(request, pk):
+    queryset = task.objects.get(id=pk)
+    if request.method == 'POST':
+        queryset.delete()
+        return redirect('/')
+
+    context = {
+        'item': queryset
+    }
+    return render(request, 'delete_task.html', context)
