@@ -12,3 +12,12 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = task
         fields = ['title', 'due']
+
+
+class UpdateForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': 'Task title...'}))
+
+    class Meta:
+        model = task
+        fields = ['title', 'due', 'complete']

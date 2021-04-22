@@ -1,0 +1,17 @@
+<div class="container">
+  <p>
+    <a href="{% url 'task_list' %}" class="btn btn-sm btn-success"
+      >Back to list</a
+    >
+  </p>
+  <p><b>Update Task</b></p>
+  <form method="POST" action="">
+    {% csrf_token %} {{form}}
+    <input
+      type="submit"
+      class="btn btn-sm btn-success"
+      value="Update"
+      name="update"
+    />
+  </form>
+</div>
