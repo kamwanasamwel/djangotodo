@@ -1,0 +1,19 @@
+from django.shortcuts import render, redirect
+from .models import *
+from .forms import *
+# Create your views here.
+
+
+def listTask(request):
+    queryset = task.objects.order_by('complete', 'due_date')
+    form = TaskForm()
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+    context = {
+        'tasks': queryset,
+        'form': form,
+    }
+    return render(request, 'list_task.html', context)
